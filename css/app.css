@@ -1,0 +1,258 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+body{
+    background: #F4F4F4;
+}
+input,button,select,textarea{outline:none}
+.main{
+    width: 960px;
+    border: 2px solid #BFBFBF;
+    border-left-color: #101010;
+    border-left-width: 4px;
+    position: absolute;
+    height:400px;
+    left:50%;
+    top:50%;
+    margin-left:-480px;
+    margin-top:-200px;
+    background: #fff;
+}
+.edit-button{
+    overflow: hidden;
+}
+.edit-button button{
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+    color: #7BA9D8;
+    font-size:28px;
+    background: #fff;
+    float: left;
+    border: none;
+}
+.edit-button button:first-child{
+    border-right: 1px solid #F3F3F3;
+}
+.edit-button button:active{
+    background: #7BA9D8;
+    color: #fff;
+}
+
+
+.list-main:after{
+    clear: both;
+    height: 0;
+    content: "";
+    visibility: hidden;
+    display: block;
+}
+.list-menu{
+    border-right:1px solid #F3F3F3;
+}
+.list-menu,.list-show{
+    width: 49.9%;
+    float: left;
+}
+.list-tab{
+    color: #7BA9D8;
+    text-align: left;
+    border-top: 1px solid #F3F3F3;
+    height:40px;
+    line-height: 40px;
+
+}
+.tab-list-link{
+    margin-left:30px;
+    position: relative;
+    cursor: pointer;
+}
+.list-tab .tab-list-link a{
+    display: inline-block;
+}
+.list-tab .tab-list-link a:hover{
+    background:#7BA9D8;
+    color: #fff;
+}
+.list-tab a:hover ul{
+    display: block;
+}
+.tab-list-link ul{
+    position: absolute;
+    left:-20px;
+    border-top: 1px solid #F3F3F3;
+    width: 100px;
+    display: none;
+}
+.tab-list-link ul li{
+    width:100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #F3F3F3;
+    border-left: 1px solid #F3F3F3;
+    border-right: 1px solid #F3F3F3;
+    background: #fff;
+    cursor: pointer;
+    color: #7BA9D8;
+}
+.tab-list-link ul li:hover{
+    background: #7BA9D8;
+    color: #fff;
+}
+.list-items{
+    border-top: 1px solid #F3F3F3;
+    height: 315px;
+    overflow:auto;
+}
+.list-items ul li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #F3F3F3;
+    font-size:20px;
+    text-indent: 40px;
+    color:#737373;
+    cursor: pointer;
+}
+.list-items ul li.listActive{
+    background: #EEF3F7;
+}
+.modal{
+    position: absolute;
+    width: 500px;
+    height: 218px;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    margin:auto;
+    border: 1px solid #F3F3F3;
+    background: #ffffff;
+    z-index:99999;
+}
+.modal-inner{
+    position: relative;
+    padding: 30px;
+    color: #737373;
+}
+.modal-inner input{
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
+    color: #737373;
+    margin-bottom: 10px;
+}
+.submit-btn{
+    border: none;
+    width: 100%;
+    height: 40px;
+    background: #7BA9D8;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+.submit-btn:active{
+    background: #5F87AF;
+}
+.close-modal{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #737373;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.close-modal:active{
+    background: #ff6666;
+}
+.list-show{
+    border-top: 1px solid #F3F3F3;
+}
+.show-item{
+    position: relative;
+}
+.list-show .show-item{
+    border-bottom: 1px solid #F3F3F3;
+    height:40px;
+    line-height: 40px;
+}
+.list-show .show-item input{
+    display: block;
+    border: none;
+    margin: 20px 50px;
+    color: #737373;
+    font-size:30px;
+}
+.list-show .show-item input:focus{
+    border: none;
+}
+.list-show .show-item .item-tag{
+    height: 40px;
+    padding-left: 20px;
+}
+.list-show .show-item .item-tag ul li{
+    cursor: pointer;
+    margin-right:10px;
+    position: relative;
+    display: inline-block;
+}
+.item-tag ul li span,.item-tag ul li a{
+    display: inline-block;
+    border-radius: 3px;
+    height:30px;
+    line-height: 30px;
+    font-size:16px;
+    padding: 0 10px;
+}
+.list-show .show-item .item-tag ul li span{
+    background: #C3C6C2;
+    color: #7BA9D8;
+}
+.list-show .show-item .item-tag ul li a{
+
+    background: #737373;
+    margin-left:-5px;
+    width: 10px;
+    color: #fff;
+    text-align: center;
+}
+.list-show .show-item .item-tag ul li a:hover{
+    background: #ff6666;
+}
+.list-show .show-item .item-tag ul li span:hover{
+    background: #7BA9D8;
+    color: #fff;
+}
+.list-tag-edit{
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.list-tag-edit button{
+    width: 50%;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    color: #7BA9D8;
+    font-size:28px;
+    background: #fff;
+    border: none;
+    border-left: 1px solid #f3f3f3;
+    float: left;
+}
+.list-tag-edit button:active{
+    background: #7BA9D8;
+    color: #fff;
+}

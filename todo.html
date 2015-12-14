@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue todo列表</title>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+    <div class="main" id="main">
+
+       <div class="modal" v-show="tagShowModal">
+           <div class="modal-inner">
+               <div class="close-modal" v-on:click="closeModal">X</div>
+               <span>输入新标签名:</span>(多个标签用英文,分开)
+               <div>
+                   <input type="text" v-model="addTagName"/>
+               </div>
+           </div>
+           <button v-on:click="addInputTag" class="submit-btn">提交</button>
+       </div><!--end 标签模块框-->
+
+       <div class="modal" v-show="showModal">
+           <div class="modal-inner">
+           <div class="close-modal" v-on:click="closeModal">X</div>
+                   <span>输入todo:</span>
+               <div>
+                   <input type="text" v-model="inputListName"/>
+               </div>
+                   <span>输入标签名:</span>(多个标签用英文,分开)
+               <div>
+                   <input type="text" v-model="inputTagName"/>
+               </div>
+           </div>
+           <button v-on:click="addInputList" class="submit-btn">提交</button>
+       </div> <!--end todo模块框-->
+       <div class="edit-button">
+           <button v-on:click="addList"> + </button>
+           <button v-on:click="removeList"> - </button>
+       </div> <!--end edit-button-->
+
+        <div class="list-main">
+            <div class="list-menu">
+                <div class="list-tab">
+                        <div class="tab-list-link">
+                            <a>Tags ▼
+                                <ul>
+                                    <li v-on:click="showAllTag">全部</li>
+                                    <li v-for="tag in tags" v-on:click="changeTag(tag)">{{tag}}</li>
+                                </ul>
+                            </a>
+                        </div>
+                </div>  <!--end list-tab-->
+                <div class="list-items">
+                    <ul>
+                        <li v-for="list in todoLists | filterBy tagCurrent in 'tags'" track-by="$index" v-show="list.name !=='' " v-on:click="changeItem($index)" v-bind:class="{'listActive':listCurrent == $index}">
+                            {{list.name}}
+                        </li>
+                    </ul>
+                </div> <!--end list-items-->
+            </div>
+            <div class="list-show">
+                <div class="show-item" v-for="list in todoLists | filterBy tagCurrent in 'tags'" track-by="$index" v-show="listCurrent == $index && list.name !==''">
+                    <div class="item-tag">
+                        <ul>
+                            <li v-for="listTag in list.tags" track-by="$index">
+                               <span v-on:click="changeTag(listTag)">{{listTag}}</span>
+                               <a v-on:click="removeTag($index)" v-show="removeTagOn">X</a>
+                            </li>
+                        </ul>
+                        <div class="list-tag-edit">
+                            <button v-on:click="addListTag"> + </button>
+                            <button v-on:click="removeListTag"> - </button>
+                        </div>
+                    </div>
+
+                    <input type="text" v-show="list.name !== ''" v-model="list.name" value="{{list.name}}"/>
+                </div>
+            </div> <!--list-show -->
+        </div> <!--end list-main-->
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="script/app.js"></script>
+</body>
+</html>
